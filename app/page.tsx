@@ -8,7 +8,8 @@ const supabase = createClient(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNvc3prbHRrY2NvdGFsZXBreWJuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxMzAxMTUsImV4cCI6MjA5NzcwNjExNX0.iHMDEFy8MhD7C7kWIhNKX4WRleuKZB2ZiZ1b9oIol5Q"
 );
 
-export default function App() {
+export default function App(): any {
+
   const [view, setView] = useState("vendor");
   const [invoices, setInvoices] = useState<any[]>([]);
 
@@ -44,7 +45,7 @@ export default function App() {
 }
 
 function VendorPortal({ fetchInvoices }: { fetchInvoices: any }) {
-  const [invoice, setInvoice] = useState({
+  const [invoice, setInvoice] = useState<any>({
     vendor: "",
     project: "",
     amount: "",
@@ -126,7 +127,7 @@ function VendorPortal({ fetchInvoices }: { fetchInvoices: any }) {
 }
 
 function AdminDashboard({ invoices, fetchInvoices }: { invoices: any; fetchInvoices: any }) {
-  const updateStatus = async (id, status) => {
+  const updateStatus = async (id: any, status: any) => {
     await supabase.from("invoices").update({ status }).eq("id", id);
     fetchInvoices();
   };
@@ -137,7 +138,8 @@ function AdminDashboard({ invoices, fetchInvoices }: { invoices: any; fetchInvoi
 
       {invoices.length === 0 && <p>No invoices submitted yet.</p>}
 
-      {invoices.map((inv) => (
+      invoices.map((inv: any) => (
+``
         <div
           key={inv.id}
           style={{
