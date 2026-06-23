@@ -10,7 +10,7 @@ const supabase = createClient(
 
 export default function App() {
   const [view, setView] = useState("vendor");
-  const [invoices, setInvoices] = useState([]);
+  const [invoices, setInvoices] = useState<any[]>([]);
 
   useEffect(() => {
     fetchInvoices();
