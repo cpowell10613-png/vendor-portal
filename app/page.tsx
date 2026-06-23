@@ -125,7 +125,7 @@ function VendorPortal({ fetchInvoices }: { fetchInvoices: any }) {
   );
 }
 
-function AdminDashboard({ invoices, fetchInvoices }) {
+function AdminDashboard({ invoices, fetchInvoices }: { invoices: any; fetchInvoices: any }) {
   const updateStatus = async (id, status) => {
     await supabase.from("invoices").update({ status }).eq("id", id);
     fetchInvoices();
