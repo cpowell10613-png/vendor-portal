@@ -43,7 +43,7 @@ export default function App() {
   );
 }
 
-function VendorPortal({ fetchInvoices }) {
+function VendorPortal({ fetchInvoices }: { fetchInvoices: any }) {
   const [invoice, setInvoice] = useState({
     vendor: "",
     project: "",
